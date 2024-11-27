@@ -1,0 +1,11 @@
+Viktor:
+1. Inverse Kinematics
+2. Realistic hitting
+3. Hitbox cooldown area
+4. IK legs
+
+Vidar:
+1. AI targeting
+2. AI cooldown and speed based on difficulty variables.
+3. AI moving forwards (a lot of cooldowns up), backwards (not many cooldowns up), forward right (going to attack on the right side), forward left (going for an attack on the left side)
+3. Damage formula based on speed, arm stretched out length and the area that was hit.
