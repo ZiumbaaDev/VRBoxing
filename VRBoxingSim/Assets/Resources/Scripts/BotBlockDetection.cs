@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class BotBlockDetection : MonoBehaviour
 {
-    SphereCollider playerLeftHandCollider;
-    SphereCollider playerRightHandCollider;
+    int hands = 0;
 
-    SphereCollider dangerZone;
+    public bool blocking = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        blocking = hands > 0;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
+        hands++;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        hands--;
     }
 }
