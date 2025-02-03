@@ -451,6 +451,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: boxerWithBones
       objectReference: {fileID: 0}
+    - target: {fileID: 1178264769995664857, guid: c480ae4c136fde045a998d6c39153d93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0234
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178264769995664857, guid: c480ae4c136fde045a998d6c39153d93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 1269410724482265645, guid: c480ae4c136fde045a998d6c39153d93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00000006245682
