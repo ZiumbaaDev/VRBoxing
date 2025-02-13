@@ -11,6 +11,7 @@ public class BotBlockDetection : MonoBehaviour
     void Update()
     {
         blocking = hands > 0;
+
     }
 
     private void OnCollisionEnter(Collision collision)
