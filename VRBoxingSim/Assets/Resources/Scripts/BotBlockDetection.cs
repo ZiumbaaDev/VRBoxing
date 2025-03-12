@@ -10,7 +10,7 @@ public class BotBlockDetection : MonoBehaviour
 
     void Update()
     {
-        blocking = hands > 0;
+        blocking = hands > 0 && !GetComponent<BotPunch>().attacking;
 
     }
 
