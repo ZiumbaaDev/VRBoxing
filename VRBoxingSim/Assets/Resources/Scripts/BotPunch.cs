@@ -26,6 +26,14 @@ public class BotPunch : MonoBehaviour
 
     public bool attacking;
 
+    public AnimationCurve punchCurve;
+
+    public float punchDuration;
+
+    bool hitBlock;
+    bool midPunch;
+    bool hitPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +64,7 @@ public class BotPunch : MonoBehaviour
         punchTarget = playerBlocking.blocking == "head" ? stomach : head;
 
 
-
+        StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration));
 
 
         if (type == "jab")
@@ -68,5 +76,44 @@ public class BotPunch : MonoBehaviour
             swingCooldown = baseSwingCooldown / 2 + Random.value * baseSwingCooldown;
         }
         attacking = false;
+    }
+
+    IEnumerator Punch(Vector3 from, Vector3 to, float duration)
+    {
+        hitBlock = false;
+        midPunch = true;
+        hitPlayer = false;
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            float eased = punchCurve.Evaluate(t);
+            transform.position = Vector3.Lerp(from, to, eased);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        midPunch = false;
+        transform.position = to;
+
+        if (hitPlayer)
+        {
+            //decrease player hp
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (midPunch)
+        {
+            if (collision.collider.CompareTag("block"))
+            {
+                hitBlock = true;
+            }
+            if (collision.collider.CompareTag("hurtbox") && !hitBlock)
+            {
+                hitPlayer = true;
+            }
+        }
     }
 }
