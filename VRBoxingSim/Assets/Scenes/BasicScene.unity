@@ -436,37 +436,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 350892831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Script: {fileID: 11500000, guid: b15aa4fa3b62b9749a4bbb2669091c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Spline:
-    m_EditModeType: 1
-    m_Knots: []
-    m_MetaData: []
-    m_Closed: 0
-    m_IntData:
-      m_Data: []
-    m_FloatData:
-      m_Data: []
-    m_Float4Data:
-      m_Data: []
-    m_ObjectData:
-      m_Data: []
-  m_Splines:
-  - m_EditModeType: 1
-    m_Knots: []
-    m_MetaData: []
-    m_Closed: 0
-    m_IntData:
-      m_Data: []
-    m_FloatData:
-      m_Data: []
-    m_Float4Data:
-      m_Data: []
-    m_ObjectData:
-      m_Data: []
-  m_Knots:
-    m_KnotsLink: []
+  objectA: {fileID: 0}
+  objectB: {fileID: 0}
+  Blocking: 0
+  botPunch: {fileID: 350892835}
 --- !u!1001 &441087506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,8 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f1c6a7a2524614fb9a8254811181fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocking: 
-  isTouching: 0
+  blocking: 0
 --- !u!1 &441087510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1670256624, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -671,8 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f1c6a7a2524614fb9a8254811181fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blocking: 
-  isTouching: 0
+  blocking: 0
 --- !u!135 &441087517
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class BotBlockDetection : MonoBehaviour
 {
-    int hands = 0;
+    public GameObject objectA;
+    public GameObject objectB;
 
-    public bool blocking = false;
+    private bool isAInside = false;
+    private bool isBInside = false;
 
-    void Update()
+    public bool Blocking;
+
+    public BotPunch botPunch;
+
+    private void OnTriggerEnter(Collider other)
     {
-        blocking = hands > 0 && !GetComponent<BotPunch>().attacking;
-
+        if (other.gameObject == objectA)
+            isAInside = true;
+        else if (other.gameObject == objectB)
+            isBInside = true;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        hands++;
+        if (other.gameObject == objectA)
+            isAInside = false;
+        else if (other.gameObject == objectB)
+            isBInside = false;
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void Update()
     {
-        hands--;
+        Blocking = (isAInside || isBInside) && !botPunch.attacking;
     }
 }

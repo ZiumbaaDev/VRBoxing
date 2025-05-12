@@ -10,10 +10,8 @@ public class BotPunch : MonoBehaviour
     public Transform leftTarget;
     public Transform leftHint;
 
-    private float swingCooldown;
-    private float baseSwingCooldown = 4;
     private float jabCooldown;
-    private float baseJabCooldown = 0.75f;
+    private float baseJabCooldown = 2f;
 
     private Transform punchTarget;
 
@@ -37,7 +35,6 @@ public class BotPunch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        swingCooldown = baseSwingCooldown;
         jabCooldown = baseJabCooldown;
         blocking = GetComponent<BotBlockDetection>();
     }
@@ -48,7 +45,6 @@ public class BotPunch : MonoBehaviour
         jabCooldown -= Time.deltaTime;
         if (jabCooldown <= 0)
         {
-            blocking.blocking = false;
             Attack(Random.value < 0.5f ? rightTarget : leftTarget, "jab");
         }
     }
@@ -60,10 +56,6 @@ public class BotPunch : MonoBehaviour
 
 
         StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration));
-
-
-        jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown;
-        attacking = false;
     }
 
     IEnumerator Punch(Vector3 from, Vector3 to, float duration)
@@ -88,6 +80,9 @@ public class BotPunch : MonoBehaviour
         {
             //Indicate hit
         }
+
+        jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown;
+        attacking = false;
     }
 
     private void OnCollisionEnter(Collision collision)
