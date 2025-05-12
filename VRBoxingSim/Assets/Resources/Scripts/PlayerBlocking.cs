@@ -5,15 +5,21 @@ using UnityEngine;
 public class PlayerBlocking : MonoBehaviour
 {
     public string blocking;
-    // Start is called before the first frame update
-    void Start()
+    public bool isTouching = false;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Hand"))
+        {
+            isTouching = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Hand"))
+        {
+            isTouching = false;
+        }
     }
 }
