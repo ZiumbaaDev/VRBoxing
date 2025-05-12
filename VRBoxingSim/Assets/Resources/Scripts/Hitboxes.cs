@@ -26,7 +26,6 @@ public class Hitboxes : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            //PlayerHp -= 10 (bara ett exempel :P
             hitbox.enabled = false;
         }
     }
@@ -35,12 +34,10 @@ public class Hitboxes : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            if (timer >= 5)
+            if (timer >= 1)
             {
                 hitbox.enabled = true;
             }
-        }
-            
-
+        }   
     }
 }
