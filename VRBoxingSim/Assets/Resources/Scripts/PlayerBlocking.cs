@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerBlocking : MonoBehaviour
 {
-    public string blocking;
-    public bool isTouching = false;
+    public bool blocking = false;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Hand"))
         {
-            isTouching = true;
+            blocking = true;
         }
     }
 
@@ -19,7 +18,7 @@ public class PlayerBlocking : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Hand"))
         {
-            isTouching = false;
+            blocking = false;
         }
     }
 }

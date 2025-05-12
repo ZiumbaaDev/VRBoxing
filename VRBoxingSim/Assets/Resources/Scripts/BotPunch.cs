@@ -45,15 +45,10 @@ public class BotPunch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        swingCooldown -= Time.deltaTime;
         jabCooldown -= Time.deltaTime;
-
-        if (!blocking.blocking && swingCooldown <= 0)
+        if (jabCooldown <= 0)
         {
-            Attack(Random.value < 0.5f ? rightTarget : leftTarget, "swing");
-        }
-        else if (!blocking.blocking && jabCooldown <= 0)
-        {
+            blocking.blocking = false;
             Attack(Random.value < 0.5f ? rightTarget : leftTarget, "jab");
         }
     }
@@ -61,20 +56,13 @@ public class BotPunch : MonoBehaviour
     void Attack(Transform hand, string type)
     {
         attacking = true;
-        punchTarget = playerBlocking.blocking == "head" ? stomach : head;
+        punchTarget = playerBlocking.blocking ? stomach : head;
 
 
         StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration));
 
 
-        if (type == "jab")
-        {
-            jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown;
-        } 
-        else
-        {
-            swingCooldown = baseSwingCooldown / 2 + Random.value * baseSwingCooldown;
-        }
+        jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown;
         attacking = false;
     }
 
@@ -98,7 +86,7 @@ public class BotPunch : MonoBehaviour
 
         if (hitPlayer)
         {
-            //decrease player hp
+            //Indicate hit
         }
     }
 
