@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftHand: {fileID: 1310556257}
   RightHand: {fileID: 1310556256}
+  boxCollider: {fileID: 11526822}
+  playerBlocking: {fileID: 0}
 --- !u!4 &11526821
 Transform:
   m_ObjectHideFlags: 0
