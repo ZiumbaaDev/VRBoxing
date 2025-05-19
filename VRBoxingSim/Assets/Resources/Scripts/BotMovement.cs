@@ -9,6 +9,7 @@ public class BotMovement : MonoBehaviour
     public bool shouldFlee = false;
 
     public BotBlockDetection botBlock;
+    public BotPunch punch;
 
     void Start()
     {
@@ -17,11 +18,11 @@ public class BotMovement : MonoBehaviour
 
     void Update()
     {
-        shouldFlee = botBlock.Blocking;
+        shouldFlee = botBlock.Blocking && !punch.wantsToAttack;
         if(fleeFromTarget != null)
         {
             Vector3 directionAway = (transform.position - fleeFromTarget.position).normalized;
-            transform.position += (shouldFlee ? 1 : -1) * speed * Time.deltaTime * directionAway;
+            transform.position += (shouldFlee ? 0.4f : -1) * speed * Time.deltaTime * directionAway;
         }
         
     }

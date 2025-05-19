@@ -32,6 +32,8 @@ public class BotPunch : MonoBehaviour
     bool midPunch;
     bool hitPlayer;
 
+    public bool wantsToAttack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,21 +47,30 @@ public class BotPunch : MonoBehaviour
         jabCooldown -= Time.deltaTime;
         if (jabCooldown <= 0)
         {
+            wantsToAttack = true;
+        }
+
+
+            float distance = Vector3.Distance(transform.position, stomach.position);
+        if (wantsToAttack && distance <= 1)
+        {
             Attack(Random.value < 0.5f ? rightTarget : leftTarget, "jab");
         }
     }
 
     void Attack(Transform hand, string type)
     {
+        wantsToAttack = false;
         attacking = true;
         punchTarget = playerBlocking.blocking ? stomach : head;
 
 
-        StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration));
+        StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration, hand));
     }
 
-    IEnumerator Punch(Vector3 from, Vector3 to, float duration)
+    IEnumerator Punch(Vector3 from, Vector3 to, float duration, Transform hand)
     {
+        Debug.Log("balls");
         hitBlock = false;
         midPunch = true;
         hitPlayer = false;
@@ -69,12 +80,12 @@ public class BotPunch : MonoBehaviour
         {
             float t = elapsed / duration;
             float eased = punchCurve.Evaluate(t);
-            transform.position = Vector3.Lerp(from, to, eased);
+            hand.position = Vector3.Lerp(from, to, eased);
             elapsed += Time.deltaTime;
             yield return null;
         }
         midPunch = false;
-        transform.position = to;
+        hand.position = to;
 
         if (hitPlayer)
         {

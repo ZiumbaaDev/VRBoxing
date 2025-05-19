@@ -155,7 +155,7 @@ MonoBehaviour:
   LeftHand: {fileID: 1310556257}
   RightHand: {fileID: 1310556256}
   boxCollider: {fileID: 11526822}
-  playerBlocking: {fileID: 0}
+  playerBlocking: {fileID: 441087509}
 --- !u!4 &11526821
 Transform:
   m_ObjectHideFlags: 0
@@ -451,6 +451,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   punchDuration: 0
+  wantsToAttack: 0
 --- !u!114 &350892836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,10 +464,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15aa4fa3b62b9749a4bbb2669091c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectA: {fileID: 441087511}
-  objectB: {fileID: 441087510}
   Blocking: 0
   botPunch: {fileID: 350892835}
+--- !u!114 &350892837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350892831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f2715a28a7f844497c211df9af3c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fleeFromTarget: {fileID: 441087507}
+  speed: 1
+  shouldFlee: 0
+  botBlock: {fileID: 350892836}
+  punch: {fileID: 350892835}
 --- !u!1001 &441087506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1072,6 +1088,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
       insertIndex: -1
       addedObject: {fileID: 350892836}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 350892837}
     - targetCorrespondingSourceObject: {fileID: 6329597806543326139, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1484635892}
