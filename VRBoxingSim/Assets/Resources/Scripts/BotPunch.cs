@@ -48,6 +48,7 @@ public class BotPunch : MonoBehaviour
         if (jabCooldown <= 0)
         {
             wantsToAttack = true;
+            jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown + punchDuration;
         }
 
 
@@ -91,8 +92,6 @@ public class BotPunch : MonoBehaviour
         {
             //Indicate hit
         }
-
-        jabCooldown = baseJabCooldown / 2 + Random.value * baseJabCooldown;
         attacking = false;
     }
 

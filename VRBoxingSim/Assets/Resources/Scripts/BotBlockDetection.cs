@@ -7,11 +7,13 @@ public class BotBlockDetection : MonoBehaviour
     public bool Blocking;
 
     public BotPunch botPunch;
+    public bool wants;
+    public bool attacks;
 
     private void Update()
     {
-        Debug.Log(botPunch.wantsToAttack);
-        Debug.Log(botPunch.attacking);
+        wants = botPunch.wantsToAttack;
+        attacks = botPunch.attacking;
         Blocking = !botPunch.wantsToAttack && !botPunch.attacking;
     }
 }

@@ -450,7 +450,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  punchDuration: 0
+  punchDuration: 1
   wantsToAttack: 0
 --- !u!114 &350892836
 MonoBehaviour:
@@ -466,6 +466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Blocking: 0
   botPunch: {fileID: 350892835}
+  wants: 0
+  attacks: 0
 --- !u!114 &350892837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f2715a28a7f844497c211df9af3c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 350892833}
   fleeFromTarget: {fileID: 441087507}
   speed: 1
   shouldFlee: 0
