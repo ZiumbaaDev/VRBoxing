@@ -22,6 +22,5 @@ public class BotMovement : MonoBehaviour
             Vector3 directionAway = (transform.position - fleeFromTarget.position).normalized;
             transform.position += (shouldFlee ? 0.4f : (punch.attacking ? 0 : -1)) * speed * Time.deltaTime * directionAway;
         }
-        
     }
 }
