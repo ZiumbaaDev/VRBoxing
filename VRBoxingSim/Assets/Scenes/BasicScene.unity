@@ -436,13 +436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3694608ac84c0f46884ef3926b88354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightTarget: {fileID: 0}
-  rightHint: {fileID: 0}
-  leftTarget: {fileID: 0}
-  leftHint: {fileID: 0}
-  stomach: {fileID: 0}
-  head: {fileID: 0}
-  playerBlocking: {fileID: 0}
+  rightTarget: {fileID: 1951944763}
+  rightHint: {fileID: 481544786}
+  leftTarget: {fileID: 1033396007}
+  leftHint: {fileID: 1745487351}
+  stomach: {fileID: 476939764}
+  head: {fileID: 81588893}
+  playerBlocking: {fileID: 441087509}
   attacking: 0
   punchCurve:
     serializedVersion: 2
@@ -463,8 +463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15aa4fa3b62b9749a4bbb2669091c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectA: {fileID: 0}
-  objectB: {fileID: 0}
+  objectA: {fileID: 441087511}
+  objectB: {fileID: 441087510}
   Blocking: 0
   botPunch: {fileID: 350892835}
 --- !u!1001 &441087506
