@@ -136,7 +136,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 81588893}
-  - component: {fileID: 81588894}
   - component: {fileID: 81588895}
   m_Layer: 2
   m_Name: Head
@@ -153,34 +152,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81588892}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36144, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 441087507}
+  m_Father: {fileID: 1340666479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &81588894
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81588892}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &81588895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +172,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocking: 0
-  maxHeadDistance: 0.6
-  maxHandDistance: 1
+  maxHeadDistance: 0.3
+  maxHandDistance: 0.5
   headTransform: {fileID: 81588893}
   leftHandTransform: {fileID: 2088106681}
   rightHandTransform: {fileID: 441087518}
@@ -413,7 +391,7 @@ MonoBehaviour:
   leftHint: {fileID: 1745487351}
   stomach: {fileID: 476939764}
   head: {fileID: 81588893}
-  playerBlocking: {fileID: 0}
+  playerBlocking: {fileID: 81588895}
   attacking: 0
   punchCurve:
     serializedVersion: 2
@@ -569,10 +547,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 81588893}
-    - targetCorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 476939764}
+    - targetCorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 81588893}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
@@ -1861,6 +1839,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 842122310974198507, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
   m_PrefabInstance: {fileID: 682850009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1340666479 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446200646
 GameObject:

@@ -71,43 +71,25 @@ public class BotPunch : MonoBehaviour
     IEnumerator Punch(float duration, string hand)
     {
         transform.localScale = new Vector3(hand == "left" ? -transform.localScale.x : transform.localScale.x, 0.01f, 0.01f);
-        Debug.Log("balls");
         hitBlock = false;
         midPunch = true;
-        hitPlayer = false;
 
         float elapsed = 0f;
         while (elapsed < duration)
         {
             float t = elapsed / duration;
             float eased = punchCurve.Evaluate(t);
-            //hand.position = Vector3.Lerp(from, to, eased);
             elapsed += Time.deltaTime;
             yield return null;
         }
         midPunch = false;
-        //hand.position = to;
 
-        if (hitPlayer)
+
+        if (Vector3.Distance(transform.position, playerBlocking.transform.position) <= 2 && !playerBlocking.blocking)
         {
-            //Indicate hit
+            Debug.Log("player hit");
         }
         attacking = false;
         transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (midPunch)
-        {
-            if (collision.collider.CompareTag("block"))
-            {
-                hitBlock = true;
-            }
-            if (collision.collider.CompareTag("hurtbox") && !hitBlock)
-            {
-                hitPlayer = true;
-            }
-        }
     }
 }
