@@ -55,22 +55,23 @@ public class BotPunch : MonoBehaviour
             float distance = Vector3.Distance(transform.position, stomach.position);
         if (wantsToAttack && distance <= 1)
         {
-            Attack(Random.value < 0.5f ? rightTarget : leftTarget, "jab");
+            Attack(Random.value < 0.5f ? "right" : "left", "jab");
         }
     }
 
-    void Attack(Transform hand, string type)
+    void Attack(string hand, string type)
     {
         wantsToAttack = false;
         attacking = true;
         punchTarget = playerBlocking.blocking ? stomach : head;
 
 
-        StartCoroutine(Punch(hand.position, punchTarget.position, punchDuration, hand));
+        StartCoroutine(Punch(punchDuration, hand));
     }
 
-    IEnumerator Punch(Vector3 from, Vector3 to, float duration, Transform hand)
+    IEnumerator Punch(float duration, string hand)
     {
+        transform.localScale = new Vector3(hand == "left" ? -transform.localScale.x : transform.localScale.x, 0.01f, 0.01f);
         Debug.Log("balls");
         hitBlock = false;
         midPunch = true;
@@ -81,18 +82,19 @@ public class BotPunch : MonoBehaviour
         {
             float t = elapsed / duration;
             float eased = punchCurve.Evaluate(t);
-            hand.position = Vector3.Lerp(from, to, eased);
+            //hand.position = Vector3.Lerp(from, to, eased);
             elapsed += Time.deltaTime;
             yield return null;
         }
         midPunch = false;
-        hand.position = to;
+        //hand.position = to;
 
         if (hitPlayer)
         {
             //Indicate hit
         }
         attacking = false;
+        transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
     }
 
     private void OnCollisionEnter(Collision collision)

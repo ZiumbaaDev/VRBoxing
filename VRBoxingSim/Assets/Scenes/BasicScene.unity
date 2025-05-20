@@ -486,6 +486,25 @@ MonoBehaviour:
   shouldFlee: 0
   botBlock: {fileID: 350892836}
   punch: {fileID: 350892835}
+--- !u!114 &350892838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350892831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39969e0b7ea76874eb87ab4b8625c7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  stamina: 0
+  staminaRegen: 5
+  baseStaminaRegenCd: 2
+  staminaRegenCd: 2
+  staminaRegenCdMax: 2
+  lastFrameStamina: 100
 --- !u!1001 &441087506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1094,6 +1113,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
       insertIndex: -1
       addedObject: {fileID: 350892837}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 350892838}
     - targetCorrespondingSourceObject: {fileID: 6329597806543326139, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1484635892}
