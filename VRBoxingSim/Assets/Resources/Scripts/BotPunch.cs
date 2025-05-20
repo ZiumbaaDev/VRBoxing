@@ -63,7 +63,6 @@ public class BotPunch : MonoBehaviour
     {
         wantsToAttack = false;
         attacking = true;
-        punchTarget = playerBlocking.blocking ? stomach : head;
 
 
         StartCoroutine(Punch(punchDuration, hand));

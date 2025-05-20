@@ -6,19 +6,18 @@ public class PlayerBlocking : MonoBehaviour
 {
     public bool blocking = false;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Hand"))
-        {
-            blocking = true;
-        }
-    }
+    public float maxHeadDistance = 0.3f;
+    public float maxHandDistance = 0.3f;
 
-    private void OnCollisionExit(Collision collision)
+    public Transform headTransform;
+    public Transform leftHandTransform;
+    public Transform rightHandTransform;
+
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Hand"))
-        {
-            blocking = false;
-        }
+        bool leftHandClose = Vector3.Distance(headTransform.position, leftHandTransform.position) < maxHeadDistance;
+        bool rightHandClose = Vector3.Distance(headTransform.position, rightHandTransform.position) < maxHeadDistance;
+
+        blocking = leftHandClose && rightHandClose && Vector3.Distance(leftHandTransform.position, rightHandTransform.position) < maxHandDistance;
     }
 }
