@@ -21,7 +21,7 @@ public class BotMovement : MonoBehaviour
             animator.SetBool("IsBlocking", botBlock.Blocking);
             animator.SetBool("IsAttackR", punch.attacking);
             Vector3 directionAway = (transform.position - fleeFromTarget.position).normalized;
-            transform.position += (shouldFlee ? 0.4f : (punch.attacking ? 0 : -1)) * speed * Time.deltaTime * directionAway;
+            transform.position += (shouldFlee ? 0.4f : (punch.attacking ? 0 : -1)) * speed * Time.deltaTime * new Vector3(directionAway.x, 0, directionAway.z);
             transform.LookAt(fleeFromTarget);
         }
     }
