@@ -13,11 +13,15 @@ public class PlayerBlocking : MonoBehaviour
     public Transform leftHandTransform;
     public Transform rightHandTransform;
 
-    private void Update()
+    public Stamina stamina;
+
+    private void FixedUpdate()
     {
         bool leftHandClose = Vector3.Distance(headTransform.position, leftHandTransform.position) < maxHeadDistance;
         bool rightHandClose = Vector3.Distance(headTransform.position, rightHandTransform.position) < maxHeadDistance;
 
         blocking = leftHandClose && rightHandClose && Vector3.Distance(leftHandTransform.position, rightHandTransform.position) < maxHandDistance;
+
+        stamina.stamina -= blocking ? (7.5f / 50) : 0;
     }
 }

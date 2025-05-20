@@ -42,6 +42,7 @@ public class PlayerPunch : MonoBehaviour
             if (leftAttacking) 
             {
                 leftAttackingTime += 0.02f;
+                GetComponent<Stamina>().stamina -= 0.2f;
             }
             else
             {
@@ -51,6 +52,7 @@ public class PlayerPunch : MonoBehaviour
             if (rightAttacking)
             {
                 rightAttackingTime += 0.02f;
+                GetComponent<Stamina>().stamina -= 0.2f;
             }
             else
             {

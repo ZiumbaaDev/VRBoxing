@@ -177,6 +177,7 @@ MonoBehaviour:
   headTransform: {fileID: 81588893}
   leftHandTransform: {fileID: 2088106681}
   rightHandTransform: {fileID: 441087518}
+  stamina: {fileID: 1095997312}
 --- !u!1 &184874468
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
-  stamina: 0
+  stamina: 100
   staminaRegen: 5
   baseStaminaRegenCd: 2
   staminaRegenCd: 2
@@ -552,6 +553,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 81588893}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1095997312}
     - targetCorrespondingSourceObject: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441087517}
@@ -1188,6 +1192,30 @@ CapsuleCollider:
   m_Height: 0.08
   m_Direction: 1
   m_Center: {x: 0, y: 0.035, z: 0}
+--- !u!1 &1095997306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1095997312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095997306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39969e0b7ea76874eb87ab4b8625c7cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  stamina: 100
+  staminaRegen: 5
+  baseStaminaRegenCd: 2
+  staminaRegenCd: 2
+  staminaRegenCdMax: 2
+  lastFrameStamina: 100
 --- !u!1 &1211135232
 GameObject:
   m_ObjectHideFlags: 0

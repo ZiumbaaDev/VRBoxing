@@ -7,6 +7,8 @@ public class Hitboxes : MonoBehaviour
 {
     SphereCollider hitbox;
     float timer = 0;
+
+    bool readyToEnable = false;
     
     // Start is called before the first frame update
     void Start()
@@ -17,9 +19,14 @@ public class Hitboxes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hitbox.enabled)
+        if (!hitbox.enabled)
         {
             timer += Time.deltaTime;
+        }
+
+        if (timer >= 1 && readyToEnable)
+        {
+            hitbox.enabled = true;
         }
     }
     private void OnTriggerEnter(Collider collider)
@@ -27,6 +34,8 @@ public class Hitboxes : MonoBehaviour
         if (collider.CompareTag("Enemy"))
         {
             hitbox.enabled = false;
+            readyToEnable = false;
+            Debug.Log("Enemy hit");
         }
     }
 
@@ -34,10 +43,7 @@ public class Hitboxes : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            if (timer >= 1)
-            {
-                hitbox.enabled = true;
-            }
-        }   
+            readyToEnable = true;
+        }
     }
 }

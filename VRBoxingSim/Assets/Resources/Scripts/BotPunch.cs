@@ -77,8 +77,6 @@ public class BotPunch : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < duration)
         {
-            float t = elapsed / duration;
-            float eased = punchCurve.Evaluate(t);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -88,8 +86,14 @@ public class BotPunch : MonoBehaviour
         if (Vector3.Distance(transform.position, playerBlocking.transform.position) <= 2 && !playerBlocking.blocking)
         {
             Debug.Log("player hit");
+            if(playerBlocking.stamina.stamina <= 0)
+            {
+                //You Lose
+            }
+            playerBlocking.stamina.stamina -= 30;
         }
         attacking = false;
         transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+        GetComponent<Stamina>().stamina -= 10;
     }
 }
