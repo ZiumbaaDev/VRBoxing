@@ -9,15 +9,16 @@ public class BotBlockDetection : MonoBehaviour
     public BotPunch botPunch;
     public bool wants;
     public bool attacks;
-    public bool regening;
+    public float timer = 0;
 
     private void FixedUpdate()
     {
+        timer += 0.02f;
         wants = botPunch.wantsToAttack && GetComponent<Stamina>().stamina > 20;
         attacks = botPunch.attacking;
-        regening = !wants && !attacks && GetComponent<Stamina>().stamina < 50;
-        Blocking = !wants && !attacks && !regening;
-
+        Blocking = !wants && !attacks;
+           
         GetComponent<Stamina>().stamina -= Blocking ? (7.5f / 50) : 0;
+               
     }
 }

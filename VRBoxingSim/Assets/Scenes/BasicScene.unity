@@ -400,7 +400,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  punchDuration: 0.4166667
+  punchDuration: 0.36666667
   wantsToAttack: 0
 --- !u!114 &350892836
 MonoBehaviour:
@@ -418,7 +418,7 @@ MonoBehaviour:
   botPunch: {fileID: 350892835}
   wants: 0
   attacks: 0
-  regening: 0
+  timer: 0
 --- !u!114 &350892837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,12 +450,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 250
-  stamina: 100
+  stamina: 200
   staminaRegen: 5
   baseStaminaRegenCd: 2
   staminaRegenCd: 2
   staminaRegenCdMax: 2
-  lastFrameStamina: 100
+  lastFrameStamina: 200
 --- !u!54 &350892839
 Rigidbody:
   m_ObjectHideFlags: 0

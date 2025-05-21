@@ -42,11 +42,11 @@ public class Stamina : MonoBehaviour
         {
             staminaRegenCd = baseStaminaRegenCd;
         }
-
-        lastFrameStamina = stamina;
         if (stamina == maxStamina)
         {
             staminaRegenCd = staminaRegenCdMax;
         }
+        lastFrameStamina = stamina;
+        
     }
 }
