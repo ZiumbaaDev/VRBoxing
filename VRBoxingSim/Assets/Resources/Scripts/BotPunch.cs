@@ -28,10 +28,6 @@ public class BotPunch : MonoBehaviour
 
     public float punchDuration;
 
-    bool hitBlock;
-    bool midPunch;
-    bool hitPlayer;
-
     public bool wantsToAttack;
 
     // Start is called before the first frame update
@@ -71,8 +67,6 @@ public class BotPunch : MonoBehaviour
     IEnumerator Punch(float duration, string hand)
     {
         transform.localScale = new Vector3(hand == "left" ? -transform.localScale.x : transform.localScale.x, 0.01f, 0.01f);
-        hitBlock = false;
-        midPunch = true;
 
         float elapsed = 0f;
         while (elapsed < duration)
@@ -80,12 +74,10 @@ public class BotPunch : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        midPunch = false;
 
 
         if (Vector3.Distance(transform.position, playerBlocking.transform.position) <= 2 && !playerBlocking.blocking)
         {
-            Debug.Log("player hit");
             if(playerBlocking.stamina.stamina <= 0)
             {
                 //You Lose

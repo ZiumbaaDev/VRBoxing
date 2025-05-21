@@ -22,7 +22,7 @@ public class BotMovement : MonoBehaviour
             animator.SetBool("IsAttackR", punch.attacking);
             Vector3 directionAway = (transform.position - fleeFromTarget.position).normalized;
             transform.position += (shouldFlee ? 0.4f : (punch.attacking ? 0 : -1)) * speed * Time.deltaTime * new Vector3(directionAway.x, 0, directionAway.z);
-            transform.LookAt(fleeFromTarget);
+            transform.LookAt(new Vector3(fleeFromTarget.position.x, 0, fleeFromTarget.position.z));
         }
     }
 }

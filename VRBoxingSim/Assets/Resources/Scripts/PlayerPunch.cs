@@ -27,6 +27,13 @@ public class PlayerPunch : MonoBehaviour
     private Queue<float> distancesB = new Queue<float>();
     public int maxFrames = 10;
 
+
+    private void Update()
+    {
+        leftCollider.enabled = leftAttacking && leftCollider.GetComponent<Hitboxes>().isEnabled;
+        rightCollider.enabled = rightAttacking && rightCollider.GetComponent<Hitboxes>().isEnabled;
+    }
+
     void FixedUpdate()
     {
         UpdateDistances(leftLastLocation, leftHand.position, rightLastLocation, rightHand.position);
@@ -40,7 +47,6 @@ public class PlayerPunch : MonoBehaviour
         if (leftAttacking) 
         {
             leftAttackingTime += 0.02f;
-            GetComponent<Stamina>().stamina -= 0.2f;
         }
         else
         {
@@ -50,15 +56,11 @@ public class PlayerPunch : MonoBehaviour
         if (rightAttacking)
         {
             rightAttackingTime += 0.02f;
-            GetComponent<Stamina>().stamina -= 0.2f;
         }
         else
         {
             rightAttackingTime = 0;
         }
-
-        leftCollider.enabled = leftAttacking;
-        rightCollider.enabled = rightAttacking;
 
 
         leftLastLocation = leftHand.position;

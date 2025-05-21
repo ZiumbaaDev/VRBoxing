@@ -8,7 +8,9 @@ public class Hitboxes : MonoBehaviour
     SphereCollider hitbox;
     float timer = 0;
 
-    bool readyToEnable = false;
+    public bool isEnabled = true;
+
+    public float cooldown;
     
     // Start is called before the first frame update
     void Start()
@@ -24,26 +26,25 @@ public class Hitboxes : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        if (timer >= 1 && readyToEnable)
+        if (timer >= cooldown)
         {
-            hitbox.enabled = true;
+            isEnabled = true;
         }
     }
     private void OnTriggerEnter(Collider collider)
     {
+        Debug.Log(collider);
         if (collider.CompareTag("Enemy"))
         {
-            hitbox.enabled = false;
-            readyToEnable = false;
+            isEnabled = false;
+            timer = 0;
+            if(collider.transform.root.GetComponent<Stamina>().stamina <= 0)
+            {
+                //You win
+            }
+            collider.transform.root.GetComponent<Stamina>().stamina -= 30;
+            transform.root.GetComponent<Stamina>().stamina -= 10;
             Debug.Log("Enemy hit");
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.CompareTag("Enemy"))
-        {
-            readyToEnable = true;
         }
     }
 }
