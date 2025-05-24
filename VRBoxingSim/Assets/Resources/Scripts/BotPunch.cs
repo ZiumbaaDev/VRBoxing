@@ -1,43 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BotPunch : MonoBehaviour
 {
-    public Transform rightTarget;
-    public Transform rightHint;
-
-    public Transform leftTarget;
-    public Transform leftHint;
-
+    public PlayerBlocking playerBlocking;
+    public bool attacking;
+    public bool wantsToAttack;
+    public float punchDuration;
     private float jabCooldown;
     private float baseJabCooldown = 2f;
 
-    private Transform punchTarget;
-
-    public Transform stomach;
-    public Transform head;
-
-    public PlayerBlocking playerBlocking;
-
-    BotBlockDetection blocking;
-
-    public bool attacking;
-
-    public AnimationCurve punchCurve;
-
-    public float punchDuration;
-
-    public bool wantsToAttack;
-
-    // Start is called before the first frame update
     void Start()
     {
         jabCooldown = baseJabCooldown;
-        blocking = GetComponent<BotBlockDetection>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         jabCooldown -= Time.deltaTime;
@@ -47,8 +23,8 @@ public class BotPunch : MonoBehaviour
             jabCooldown = baseJabCooldown + Random.value * baseJabCooldown + punchDuration;
         }
 
-
-            float distance = Vector3.Distance(transform.position, stomach.position);
+        float distance = Vector3.Distance(transform.position, playerBlocking.transform.position);
+        
         if (wantsToAttack && distance <= 1)
         {
             Attack(Random.value < 0.5f ? "right" : "left", "jab");
@@ -59,7 +35,6 @@ public class BotPunch : MonoBehaviour
     {
         wantsToAttack = false;
         attacking = true;
-
 
         StartCoroutine(Punch(punchDuration, hand));
     }
@@ -74,7 +49,6 @@ public class BotPunch : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-
 
         if (Vector3.Distance(transform.position, playerBlocking.transform.position) <= 2 && !playerBlocking.blocking)
         {

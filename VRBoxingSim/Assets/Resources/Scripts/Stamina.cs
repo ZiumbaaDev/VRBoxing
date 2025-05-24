@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stamina : MonoBehaviour
 {
-
     public float maxStamina;
     public float stamina;
     public float staminaRegen;
@@ -13,16 +10,10 @@ public class Stamina : MonoBehaviour
     public float staminaRegenCd;
     public float staminaRegenCdMax;
     public float lastFrameStamina = 100;
-    // Start is called before the first frame update
+    
     void Start()
     {
         staminaRegenCd = baseStaminaRegenCd;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
