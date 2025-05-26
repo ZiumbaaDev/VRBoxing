@@ -10,7 +10,8 @@ public class Stamina : MonoBehaviour
     public float staminaRegenCd;
     public float staminaRegenCdMax;
     public float lastFrameStamina = 100;
-    
+
+    public RectTransform rectTransform;
     void Start()
     {
         staminaRegenCd = baseStaminaRegenCd;
@@ -19,6 +20,7 @@ public class Stamina : MonoBehaviour
     private void FixedUpdate()
     {
         stamina += staminaRegenCd <= 0 ? staminaRegen / 50 : 0;
+        rectTransform.localScale = new Vector3(stamina / 137.5f, 1, 0);
 
         if(stamina > maxStamina)
         {
