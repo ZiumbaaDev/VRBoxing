@@ -10,6 +10,7 @@ public class Stamina : MonoBehaviour
     public float staminaRegenCd;
     public float staminaRegenCdMax;
     public float lastFrameStamina = 100;
+
     void Start()
     {
         staminaRegenCd = baseStaminaRegenCd;

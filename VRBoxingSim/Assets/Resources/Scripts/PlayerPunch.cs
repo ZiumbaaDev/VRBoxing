@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -26,15 +27,17 @@ public class PlayerPunch : MonoBehaviour
     private Queue<float> distancesA = new Queue<float>();
     private Queue<float> distancesB = new Queue<float>();
     public int maxFrames = 10;
-    public RectTransform rectTransform;
+    public TMP_Text text;
     public Stamina stamina;
-
+    string staminaText;
 
     private void Update()
     {
         leftCollider.enabled = leftAttacking && leftCollider.GetComponent<Hitboxes>().isEnabled;
         rightCollider.enabled = rightAttacking && rightCollider.GetComponent<Hitboxes>().isEnabled;
-        rectTransform.localScale = new Vector3(stamina.stamina / 137.5f, 1, 0);
+        staminaText = Mathf.Round(stamina.stamina).ToString();
+        text.text = staminaText + "/250";
+        
     }
 
     void FixedUpdate()
