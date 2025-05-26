@@ -188,9 +188,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: IsBlocking
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: IsIdle
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3075232816416183643}
   m_Solo: 0

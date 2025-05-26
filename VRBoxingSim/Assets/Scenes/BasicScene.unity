@@ -390,6 +390,8 @@ MonoBehaviour:
   attacking: 0
   wantsToAttack: 0
   punchDuration: 0.36666667
+  staggerCd: 1
+  staggered: 0
 --- !u!114 &350892836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,8 +444,7 @@ MonoBehaviour:
   baseStaminaRegenCd: 2
   staminaRegenCd: 2
   staminaRegenCdMax: 2
-  lastFrameStamina: 200
-  rectTransform: {fileID: 0}
+  lastFrameStamina: 250
 --- !u!54 &350892839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -785,7 +786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: 380}
   m_SizeDelta: {x: 400, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &498695026
@@ -1444,13 +1445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 250
-  stamina: 100
+  stamina: 250
   staminaRegen: 5
   baseStaminaRegenCd: 2
   staminaRegenCd: 2
   staminaRegenCdMax: 2
-  lastFrameStamina: 100
-  rectTransform: {fileID: 498695024}
+  lastFrameStamina: 250
 --- !u!114 &1095997313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1475,6 +1475,8 @@ MonoBehaviour:
   leftAttackingTime: 0
   rightAttackingTime: 0
   maxFrames: 10
+  rectTransform: {fileID: 498695024}
+  stamina: {fileID: 1095997312}
 --- !u!1 &1211135232
 GameObject:
   m_ObjectHideFlags: 0

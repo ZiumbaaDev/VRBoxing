@@ -9,6 +9,9 @@ public class BotPunch : MonoBehaviour
     public float punchDuration;
     private float jabCooldown;
     private float baseJabCooldown = 2f;
+    public float staggerCd = 1;
+
+    public bool staggered;
 
     void Start()
     {
@@ -16,6 +19,7 @@ public class BotPunch : MonoBehaviour
     }
     void Update()
     {
+        staggerCd -= Time.deltaTime;
         jabCooldown -= Time.deltaTime;
         if (jabCooldown <= 0)
         {
@@ -29,6 +33,8 @@ public class BotPunch : MonoBehaviour
         {
             Attack(Random.value < 0.5f ? "right" : "left", "jab");
         }
+
+        staggered = staggerCd > 0;
     }
 
     void Attack(string hand, string type)
@@ -61,5 +67,6 @@ public class BotPunch : MonoBehaviour
         attacking = false;
         transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         GetComponent<Stamina>().stamina -= 10;
+        staggerCd = 1;
     }
 }

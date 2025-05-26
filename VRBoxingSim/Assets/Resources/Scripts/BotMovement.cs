@@ -12,10 +12,10 @@ public class BotMovement : MonoBehaviour
 
     void Update()
     {
-        shouldFlee = botBlock.Blocking;
+        shouldFlee = botBlock.Blocking || punch.staggered;
         if(fleeFromTarget != null)
         {
-            animator.SetBool("IsIdle", punch.wantsToAttack);
+            animator.SetBool("IsIdle", punch.wantsToAttack || punch.staggered);
             animator.SetBool("IsBlocking", botBlock.Blocking);
             animator.SetBool("IsAttackR", punch.attacking);
             Vector3 directionAway = (transform.position - fleeFromTarget.position).normalized;
