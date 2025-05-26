@@ -25,7 +25,7 @@ public class BotPunch : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, playerBlocking.transform.position);
         
-        if (wantsToAttack && distance <= 1)
+        if (wantsToAttack && distance <= 2)
         {
             Attack(Random.value < 0.5f ? "right" : "left", "jab");
         }

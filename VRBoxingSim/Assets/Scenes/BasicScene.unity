@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 250
-  stamina: 200
+  stamina: 250
   staminaRegen: 5
   baseStaminaRegenCd: 2
   staminaRegenCd: 2
