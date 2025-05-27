@@ -12,12 +12,16 @@ public class BotPunch : MonoBehaviour
     private float jabCooldown;
     private float baseJabCooldown = 2f;
     public float staggerCd = 1;
+    public float vignetteDuration;
 
     public bool staggered;
+
+    public MeshRenderer vignette;
 
     void Start()
     {
         jabCooldown = baseJabCooldown;
+        vignette.enabled = false;
     }
     void Update()
     {
@@ -27,6 +31,15 @@ public class BotPunch : MonoBehaviour
         {
             wantsToAttack = true;
             jabCooldown = baseJabCooldown + Random.value * baseJabCooldown + punchDuration;
+        }
+        if(vignette.enabled)
+        {
+            vignetteDuration += Time.deltaTime;
+            if(vignetteDuration >= 0.5f)
+            {
+                vignette.enabled = false;
+                vignetteDuration = 0;
+            }
         }
 
         float distance = Vector3.Distance(transform.position, playerBlocking.transform.position);
@@ -78,6 +91,7 @@ public class BotPunch : MonoBehaviour
                 gameObject.SetActive(false);
             }
             playerBlocking.stamina.stamina -= 30;
+            vignette.enabled = true;
         }
         attackingJab = false;
         attackingUppercut = false;
