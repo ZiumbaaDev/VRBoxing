@@ -11,6 +11,8 @@ public class Hitboxes : MonoBehaviour
     public bool isEnabled = true;
 
     public float cooldown;
+
+    public AudioSource sound;
     
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class Hitboxes : MonoBehaviour
         Debug.Log(collider);
         if (collider.CompareTag("Enemy"))
         {
+            sound.Play();
             isEnabled = false;
             timer = 0;
             if(collider.transform.root.GetComponent<Stamina>().stamina <= 0)
