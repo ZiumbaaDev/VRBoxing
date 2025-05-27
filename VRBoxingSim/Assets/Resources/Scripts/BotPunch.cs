@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
 public class BotPunch : MonoBehaviour
 {
@@ -12,16 +14,16 @@ public class BotPunch : MonoBehaviour
     private float jabCooldown;
     private float baseJabCooldown = 2f;
     public float staggerCd = 1;
-    public float vignetteDuration;
+    public float hurtBorderDuration;
 
     public bool staggered;
 
-    public MeshRenderer vignette;
+    public Canvas hurtBorder;
 
     void Start()
     {
         jabCooldown = baseJabCooldown;
-        vignette.enabled = false;
+        hurtBorder.enabled = false;
     }
     void Update()
     {
@@ -32,15 +34,16 @@ public class BotPunch : MonoBehaviour
             wantsToAttack = true;
             jabCooldown = baseJabCooldown + Random.value * baseJabCooldown + punchDuration;
         }
-        if(vignette.enabled)
+        if(hurtBorder.enabled)
         {
-            vignetteDuration += Time.deltaTime;
-            if(vignetteDuration >= 0.5f)
+            hurtBorderDuration += Time.deltaTime;
+            if(hurtBorderDuration >= 0.5f)
             {
-                vignette.enabled = false;
-                vignetteDuration = 0;
+                hurtBorder.enabled = false;
+                hurtBorderDuration = 0;
             }
         }
+        
 
         float distance = Vector3.Distance(transform.position, playerBlocking.transform.position);
         
@@ -91,7 +94,7 @@ public class BotPunch : MonoBehaviour
                 gameObject.SetActive(false);
             }
             playerBlocking.stamina.stamina -= 30;
-            vignette.enabled = true;
+            hurtBorder.enabled = true;
         }
         attackingJab = false;
         attackingUppercut = false;
