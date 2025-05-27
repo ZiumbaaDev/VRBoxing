@@ -4,7 +4,9 @@ using UnityEngine;
 public class BotPunch : MonoBehaviour
 {
     public PlayerBlocking playerBlocking;
-    public bool attacking;
+    public bool attackingJab;
+    public bool attackingUppercut;
+    public bool attackingHook;
     public bool wantsToAttack;
     public float punchDuration;
     private float jabCooldown;
@@ -31,7 +33,8 @@ public class BotPunch : MonoBehaviour
         
         if (wantsToAttack && distance <= 2)
         {
-            Attack(Random.value < 0.5f ? "right" : "left", "jab");
+            float randomAtk = Random.value;
+            Attack(Random.value < 0.5f ? "right" : "left", randomAtk < 0.33f ? "jab" : (randomAtk < 0.66f ? "uppercut" : "hook"));
         }
 
         staggered = staggerCd > 0;
@@ -40,7 +43,18 @@ public class BotPunch : MonoBehaviour
     void Attack(string hand, string type)
     {
         wantsToAttack = false;
-        attacking = true;
+        if (type == "jab")
+        {
+            attackingJab = true;
+        }
+        else if (type == "uppercut")
+        {
+            attackingUppercut = true;
+        }
+        else if (type == "hook")
+        {
+            attackingHook = true;
+        }
 
         StartCoroutine(Punch(punchDuration, hand));
     }
@@ -61,10 +75,13 @@ public class BotPunch : MonoBehaviour
             if(playerBlocking.stamina.stamina <= 0)
             {
                 //You Lose
+                gameObject.SetActive(false);
             }
             playerBlocking.stamina.stamina -= 30;
         }
-        attacking = false;
+        attackingJab = false;
+        attackingUppercut = false;
+        attackingHook = false;
         transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         GetComponent<Stamina>().stamina -= 10;
         staggerCd = 1;

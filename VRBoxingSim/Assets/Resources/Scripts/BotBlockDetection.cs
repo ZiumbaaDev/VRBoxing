@@ -13,7 +13,7 @@ public class BotBlockDetection : MonoBehaviour
     private void FixedUpdate()
     {
         wants = botPunch.wantsToAttack && GetComponent<Stamina>().stamina > 50;
-        attacks = botPunch.attacking;
+        attacks = botPunch.attackingJab || botPunch.attackingUppercut || botPunch.attackingHook;
         Blocking = !wants && !attacks && !botPunch.staggered;
         
         GetComponent<Stamina>().stamina -= Blocking && GetComponent<Stamina>().stamina > 125f ? (7.5f / 50) : 0;

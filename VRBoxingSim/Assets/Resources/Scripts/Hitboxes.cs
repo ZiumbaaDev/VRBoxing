@@ -41,6 +41,7 @@ public class Hitboxes : MonoBehaviour
             if(collider.transform.root.GetComponent<Stamina>().stamina <= 0)
             {
                 //You win
+                collider.gameObject.SetActive(false);
             }
             collider.transform.root.GetComponent<Stamina>().stamina -= 30;
             transform.root.GetComponent<Stamina>().stamina -= 10;
