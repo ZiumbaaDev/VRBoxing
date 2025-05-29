@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class BotPunch : MonoBehaviour
 {
     public PlayerBlocking playerBlocking;
+    public ScreenShake screenShake;
     public bool attackingJab;
     public bool attackingUppercut;
     public bool attackingHook;
@@ -96,6 +97,7 @@ public class BotPunch : MonoBehaviour
             }
             playerBlocking.stamina.stamina -= 30;
             hurtBorder.enabled = true;
+            screenShake.start = true;
         }
         attackingJab = false;
         attackingUppercut = false;

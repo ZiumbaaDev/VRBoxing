@@ -26,7 +26,6 @@ public class Stamina : MonoBehaviour
     {
         stamina += staminaRegenCd <= 0 ? staminaRegen / 50 : 0;
         
-        
         if(globalVolume.profile.TryGet(out dof))
         {
             dof.focalLength.value = 250 - stamina;
