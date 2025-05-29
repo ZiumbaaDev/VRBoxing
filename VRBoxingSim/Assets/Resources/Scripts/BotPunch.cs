@@ -64,14 +64,17 @@ public class BotPunch : MonoBehaviour
         if (type == "jab")
         {
             attackingJab = true;
+            punchDuration = 0.3666667f;
         }
         else if (type == "uppercut")
         {
             attackingUppercut = true;
+            punchDuration = 0.8f;
         }
         else if (type == "hook")
         {
             attackingHook = true;
+            punchDuration = 0.55f;
         }
 
         StartCoroutine(Punch(punchDuration, hand));
