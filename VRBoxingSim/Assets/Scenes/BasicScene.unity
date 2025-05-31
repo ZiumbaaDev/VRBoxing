@@ -500,8 +500,6 @@ MonoBehaviour:
   staminaRegenCd: 2
   staminaRegenCdMax: 2
   lastFrameStamina: 250
-  globalVolume: {fileID: 328414489}
-  botPunch: {fileID: 350892835}
 --- !u!54 &350892839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -788,6 +786,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1340666484}
+    - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1340666485}
     - targetCorrespondingSourceObject: {fileID: 202364687, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441087517}
@@ -1778,8 +1779,6 @@ MonoBehaviour:
   staminaRegenCd: 2
   staminaRegenCdMax: 2
   lastFrameStamina: 250
-  globalVolume: {fileID: 328414489}
-  botPunch: {fileID: 350892835}
 --- !u!114 &1095997313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2664,6 +2663,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1340666485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229902390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3995977106628428ae060c1b81abd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVolume: {fileID: 328414489}
+  botPunch: {fileID: 350892835}
+  playerStamina: {fileID: 1095997312}
 --- !u!1001 &1343290533
 PrefabInstance:
   m_ObjectHideFlags: 0
