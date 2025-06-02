@@ -447,6 +447,11 @@ MonoBehaviour:
   hurtBorderDuration: 0
   staggered: 0
   hurtBorder: {fileID: 2023957252}
+  text: {fileID: 1355946754}
+  staminaText: {fileID: 1659921558}
+  hurtIndication: {fileID: 2023957249}
+  blockIndication: {fileID: 1059584689}
+  blur: {fileID: 328414488}
 --- !u!114 &350892836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,7 +907,12 @@ MonoBehaviour:
   isEnabled: 1
   cooldown: 1.5
   sound: {fileID: 350892840}
-  flashMaterial: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 9bd87bdd542976b478ccad6d2e53ecb6, type: 2}
+  text: {fileID: 1355946754}
+  staminaText: {fileID: 1659921558}
+  hurtIndication: {fileID: 2023957249}
+  blockIndication: {fileID: 1059584689}
+  blur: {fileID: 328414488}
 --- !u!1 &476939763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,7 +2955,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3728,7 +3738,12 @@ MonoBehaviour:
   isEnabled: 1
   cooldown: 1.5
   sound: {fileID: 350892840}
-  flashMaterial: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 9bd87bdd542976b478ccad6d2e53ecb6, type: 2}
+  text: {fileID: 1355946754}
+  staminaText: {fileID: 1659921558}
+  hurtIndication: {fileID: 2023957249}
+  blockIndication: {fileID: 1059584689}
+  blur: {fileID: 328414488}
 --- !u!1 &2091883157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2715911099482807235, guid: 8c5d940ff91152d4cbc291b1514e9859, type: 3}

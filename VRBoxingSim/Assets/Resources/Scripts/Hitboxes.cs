@@ -17,8 +17,12 @@ public class Hitboxes : MonoBehaviour
 
     public Material flashMaterial;
 
-    public TextMeshPro text;
-    
+    public TMP_Text text;
+    public GameObject staminaText;
+    public GameObject hurtIndication;
+    public GameObject blockIndication;
+    public GameObject blur;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +52,11 @@ public class Hitboxes : MonoBehaviour
             timer = 0;
             if(collider.transform.root.GetComponent<Stamina>().stamina <= 0)
             {
+                staminaText.SetActive(false);
+                hurtIndication.SetActive(false);
+                blockIndication.SetActive(false);
                 text.text = "You Win!";
+
                 collider.gameObject.SetActive(false);
             }
             collider.transform.root.GetComponent<Stamina>().stamina -= 30;

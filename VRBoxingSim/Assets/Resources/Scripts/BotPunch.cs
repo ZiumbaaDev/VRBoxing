@@ -23,7 +23,11 @@ public class BotPunch : MonoBehaviour
 
     public Canvas hurtBorder;
 
-    public TextMeshPro text;
+    public TMP_Text text;
+    public GameObject staminaText;
+    public GameObject hurtIndication;
+    public GameObject blockIndication;
+    public GameObject blur;
 
     void Start()
     {
@@ -98,6 +102,10 @@ public class BotPunch : MonoBehaviour
         {
             if(playerBlocking.stamina.stamina <= 0)
             {
+                staminaText.SetActive(false);
+                hurtIndication.SetActive(false);
+                blockIndication.SetActive(false);
+                blur.SetActive(false);
                 text.text = "You Lose!";
                 gameObject.SetActive(false);
             }

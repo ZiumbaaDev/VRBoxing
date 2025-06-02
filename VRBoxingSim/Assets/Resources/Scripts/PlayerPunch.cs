@@ -36,7 +36,7 @@ public class PlayerPunch : MonoBehaviour
         leftCollider.enabled = leftAttacking && leftCollider.GetComponent<Hitboxes>().isEnabled;
         rightCollider.enabled = rightAttacking && rightCollider.GetComponent<Hitboxes>().isEnabled;
         staminaText = Mathf.Round(stamina.stamina).ToString();
-        text.text = staminaText + "/250";
+        text.text = (stamina.stamina <= 0 ? "0" : staminaText) + "/250";
         
     }
 
