@@ -22,7 +22,7 @@ public class BotHit : MonoBehaviour
     private IEnumerator Flash()
     {
         rend.material = flashMaterial;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         rend.material = originalMaterial;
     }
 }

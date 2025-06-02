@@ -55,6 +55,7 @@ public class Hitboxes : MonoBehaviour
                 staminaText.SetActive(false);
                 hurtIndication.SetActive(false);
                 blockIndication.SetActive(false);
+                blur.SetActive(false);
                 text.text = "You Win!";
 
                 collider.gameObject.SetActive(false);
