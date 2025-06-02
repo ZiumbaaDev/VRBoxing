@@ -13,6 +13,8 @@ public class Hitboxes : MonoBehaviour
     public float cooldown;
 
     public AudioSource sound;
+
+    public Material flashMaterial;
     
     // Start is called before the first frame update
     void Start()
@@ -35,9 +37,9 @@ public class Hitboxes : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider);
         if (collider.CompareTag("Enemy"))
         {
+            collider.transform.root.GetComponent<BotHit>().OnHit();
             sound.Play();
             isEnabled = false;
             timer = 0;
