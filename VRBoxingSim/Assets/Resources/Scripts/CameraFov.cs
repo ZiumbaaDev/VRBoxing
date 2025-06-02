@@ -6,6 +6,9 @@ public class CameraFov : MonoBehaviour
 {
     public Camera camera;
     public Stamina stamina;
+
+    public RectTransform blockBorder;
+    public RectTransform hurtBorder;
     
     void Start()
     {
@@ -15,17 +18,19 @@ public class CameraFov : MonoBehaviour
     
     void Update()
     {
-        if (stamina.stamina <= 125)
-        {
-            camera.fieldOfView -= 2 * Time.deltaTime;
-            if (camera.fieldOfView <= 35)
-            {
-                camera.fieldOfView = 35;
-            }
-        }
-        else
-        {
-            camera.fieldOfView = 60;
-        }
+        //if (stamina.stamina <= 125)
+        //{
+        //    camera.fieldOfView -= 2 * Time.deltaTime;
+        //    if (camera.fieldOfView <= 35)
+        //    {
+        //        camera.fieldOfView = 35;
+        //    }
+        //}
+        //else
+        //{
+        //    camera.fieldOfView = 60;
+        //    blockBorder.localScale = new Vector3(60 / 35, 60 / 35, 60 / 35);
+        //    hurtBorder.localScale = new Vector3(60 / 35, 60 / 35, 60 / 35);
+        //}
     }
 }

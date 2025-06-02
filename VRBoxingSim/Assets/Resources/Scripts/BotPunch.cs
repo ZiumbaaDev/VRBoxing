@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -21,6 +22,8 @@ public class BotPunch : MonoBehaviour
     public bool staggered;
 
     public Canvas hurtBorder;
+
+    public TextMeshPro text;
 
     void Start()
     {
@@ -95,7 +98,7 @@ public class BotPunch : MonoBehaviour
         {
             if(playerBlocking.stamina.stamina <= 0)
             {
-                //You Lose
+                text.text = "You Lose!";
                 gameObject.SetActive(false);
             }
             playerBlocking.stamina.stamina -= 30;
